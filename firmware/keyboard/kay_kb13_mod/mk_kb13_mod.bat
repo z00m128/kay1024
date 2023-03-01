@@ -1,0 +1,1 @@
+sjasmplus --syntax=fa --lst=kay_kb13_mod.lst kay_kb13_mod.a80
