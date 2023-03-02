@@ -1,0 +1,24 @@
+FUSES для ATMega8
+в no_WAIT контроллере PS/2 клавиатуры:
+-------------------------------------
+ Name     ! Default  !   SET  ! MODE
+-------------------------------------
+CKSEL0    !    on    !   off  !1\    Внешний
+CKSEL1    !   off    !   off  !1 > - кварцевый
+CKSEL2    !    on    !   off  !1 /   генератор
+CKSEL3    !    on    !   off  !1/
+SUT0      !    on    !    on  !0
+SUT1      !   off    !   off  !1
+BODEN	  !   off    !   off  !1
+BODLEVEL  !   off    !   off  !1
+BOOTRST	  !   off    !   off  !1
+BOOTSZ0   !    on    !    on  !0
+BOOTSZ1   !    on    !    on  !0
+EESAVE    !   off    !   off  !1
+CKOPT     !   off    !   off  !1 Выход Clk отключен
+SPIEN     !    on    !    on  !0 Всегда должен быть '0'
+WDTON     !   off    !   off  !1 Watch Dog отключен
+RSTDISBL  !   off    !   off  !1 Вход /RST как СБРОС
+---------------------------------------
+EFD9 - код в Sterh ST011
+
