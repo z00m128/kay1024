@@ -55,7 +55,7 @@ The board has been revised, enhanced and re-released under the name KAY1024 v201
     
  ## Recommendations
  
-If you are going to build it, do not try to assemble it from integrated circuits of the LS family. ALS family is the minimum. I'm recommending HCT family as I had a lot of issues with the picture and overall stability with the ALS ICs. The HC family also did not work for me. Once I swithed to HCT ICs, most of the problems were gone. You can combine HC with HCT ICs and ALS with HCT ICs where it is needed or possible. You can't combine HC and ALS directly. It will not work properly.
+If you are going to build it, do not try to assemble it from integrated circuits of the LS family. ALS family is the minimum. I'm recommending HCT family as I had a lot of issues with the picture quality and overall stability with the ALS ICs. The HC family also did not work for me. Once I swithed to HCT ICs, most of the problems were gone. You can combine HC with HCT ICs and ALS with HCT ICs where it is needed or possible. You can't combine HC and ALS directly. It will not work properly.
 
 Use high quality logic components where possible. Chinese things from ebay most likely would not work properly.
 
@@ -67,6 +67,6 @@ The SCR/ signal is probably not well timed, because thin interfering lines were 
 
 Also the HC5 falls down too soon in my case, so it produces a glitch at the output of DD48.2. I fixed this with 120p ceramic capacitor connected to ground.
 
-The PS/2 keyboard controller firmware has a key layout that drove me crazy. SHIFT keys are used as SYMBOL SHIFT and CTRL keys as CAPS SHIFT, completely illogically for me at least. Unfortunately, I couldn't find the source code for the firmware anywhere, so I got around it in a rather curious way using the ATMEGA firmware binary and SjASMPlus. Now it is possible to create your own layout, except for the SHIFT and CTRL keys. They are hard-coded in the firmware, but I managed to change the function of the SHIFT and CTRL keys on the left side, so at least they behave logically - SHIFT as CAPS SHIFT and CTRL as SYMBOL SHIFT. The modified firmware you can find in ./firmware/keyboard/kay_kb13_mod folder.
+The PS/2 keyboard controller firmware has a key layout that drove me crazy. SHIFT keys are used as SYMBOL SHIFT and CTRL keys as CAPS SHIFT, completely illogically (for me at least). Unfortunately, I couldn't find the source code for the firmware anywhere, so I got around it in a rather curious way using the ATMEGA firmware binary and [SjASMPlus](https://github.com/z00m128/sjasmplus). Now it is possible to create your own layout, except for the SHIFT and CTRL keys. They are hard-coded in the firmware, but I managed to change the function of the SHIFT and CTRL keys on the left side, so at least they behave logically - SHIFT as CAPS SHIFT and CTRL as SYMBOL SHIFT. The modified firmware you can find in [./firmware/keyboard/kay_kb13_mod](https://github.com/z00m128/kay1024/tree/main/firmware/keyboard/kay_kb13_mod) folder.
 
 I can read and understand russian texts, but sadly, all documentation is in russian language. So if you can't read russian, you have to struggle your own fight with it. I will not translate the documentation to english. Maybe except for notes in text files.
