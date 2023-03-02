@@ -53,7 +53,52 @@ The board has been revised, enhanced and re-released under the name KAY1024 v201
     D6 = /Q6 (XS1, Printer)
     D7 = bank 4 ;512 kB memory
     
- ## Recommendations
+### Port 1FFDh configuration
+    JP4 = port 1FFDh blocking circuit presence.
+    9-7 - blocking circuit is installed / 9-8 - blocking circuit is not installed.
+
+    JP6 = port 1FFDh blocking circuit configuration.
+    Open - 1FFDh blocking circuit is enabled / Closed - 1FFDh blocking circuit is disabled.
+    
+    JP7 = port 1FFDh blocking on/off. Push button.
+    
+So, if you have not installed the 1FFDh port blocking circuit, the JP4 must be in 9-8 position and JP6 must be closed. If you have the DD58 and related parts fitted, JP4 must be in the 9-7 position and JP6 must be open. The push button connected to JP7 then serves to momentarily block/unblock the 1FFDh port. Actual state is indicated with HL2 LED - if the LED is on, the port is blocked.
+    
+### Jumper configuration
+    JP1  = Turbo on-off, on/off switch. Overrides 1FFDh/bit2 state if enabled with JP3.
+    JP1' = Turbo on-off, push button. Overrides 1FFDh/bit2 state if enabled with JP3
+    Use preferred one.
+    
+    JP2  = Reset, push button.
+    
+    JP3  = Turbo control.
+    Open - controlled by button/switch only / Closed - controlled by button/switch and port 1FFDh/bit2.
+    
+    JP5  = ROM layout configuration.
+    10-11 standard ROM page layout / 11-12 reversed ROM page layout.
+    
+    JP10 = INT control.
+    1-2 standard operation of the INT / 2-3 external INT.
+    
+    JP11 = port #FF control.
+    Needs to be open if port #FF circuit is installed.
+    
+    JP12 = Power supply configuration.
+    1-2 built-in 12V converter / 2-3 ATX power supply.
+    
+    JP13 = Power supply external on-off. Activated by pulse.
+    
+    JP14 = Power supply on-off. Push button.
+    
+    JP15 = Video configuration.
+    Open - disable video on XS5 & XS10 / Closed - enable video on XS5(1) & XS10(8).
+    
+    JP16 = Sync configuration.
+    Open - disable sync on XS5 & XS10 / Closed - enable sync on XS5(5) & XS10(11).
+    
+    JP17 = bicolor LED. Power ON (green) / Power fail (red).
+        
+## Recommendations
  
 If you are going to build it, do not try to assemble it from integrated circuits of the LS family. ALS family is the minimum. I'm recommending HCT family as I had a lot of issues with the picture quality and overall stability with the ALS ICs. The HC family also did not work for me. Once I swithed to HCT ICs, most of the problems were gone. You can combine HC with HCT ICs and ALS with HCT ICs where it is needed or possible. You can't combine HC and ALS directly. It will not work properly.
 
