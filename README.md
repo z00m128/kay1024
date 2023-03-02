@@ -55,4 +55,18 @@ The board has been revised, enhanced and re-released under the name KAY1024 v201
     
  ## Recommendations
  
-If you are going to build it, do not try to assemble it from integrated circuits of the LS type. ALS family is the minimum. I'm recommending HCT family as I had a lot of issues with the picture and overall stability with the ALS ICs. Once I swithed to HCT ICs, most of the problems were gone.
+If you are going to build it, do not try to assemble it from integrated circuits of the LS family. ALS family is the minimum. I'm recommending HCT family as I had a lot of issues with the picture and overall stability with the ALS ICs. The HC family also did not work for me. Once I swithed to HCT ICs, most of the problems were gone. You can combine HC with HCT ICs and ALS with HCT ICs where it is needed or possible. You can't combine HC and ALS directly. It will not work properly.
+
+Use high quality logic components where possible. Chinese things from ebay most likely would not work properly.
+
+I had a lot of problems with timings in many places of the circuit if DD1 and DD2 did not give proper waveforms on the oscilloscope. Try to use a pullup on the output of the master clock (DD1.2) if its waveform is too wavy. I have new Texas Instruments 74HC04 as DD1 and new oldstock ELCAP 74HCT175 as DD2 and this combo finally give me good results.
+
+I couldn't find several integrated circuits in the ALS or HCT version anymore, so I had to use the LS version. Fortunately, it doesn't cause problems (except DD7). These are DD33 and DD34 (74LS298), DD41 and DD53 (74LS295), DD8 and DD29 (74LS07), DD7 and DD44 (74LS06). 74LS06 in position DD7 will not work, it is necessary to use 74ALS05 or 75HC05 instead.
+
+The SCR/ signal is probably not well timed, because thin interfering lines were displayed on the edges of the attributes. The pulses seem to come too soon. It needs to be shifted with an 82p - 120p ceramic capacitor connected to ground, depending on your conditions. As a second option, it may help to use 74ALS86 instead of 74HCT86 in position DD11.
+
+Also the HC5 falls down too soon in my case, so it produces a glitch at the output of DD48.2. I fixed this with 120p ceramic capacitor connected to ground.
+
+The PS/2 keyboard controller firmware has a key layout that drove me crazy. SHIFT keys are used as SYMBOL SHIFT and CTRL keys as CAPS SHIFT, completely illogically for me at least. Unfortunately, I couldn't find the source code for the firmware anywhere, so I got around it in a rather curious way using the ATMEGA firmware binary and SjASMPlus. Now it is possible to create your own layout, except for the SHIFT and CTRL keys. They are hard-coded in the firmware, but I managed to change the function of the SHIFT and CTRL keys on the left side, so at least they behave logically - SHIFT as CAPS SHIFT and CTRL as SYMBOL SHIFT. The modified firmware you can find in ./firmware/keyboard/kay_kb13_mod folder.
+
+I can read and understand russian texts, but sadly, all documentation is in russian language. So if you can't read russian, you have to struggle your own fight with it. I will not translate the documentation to english. Maybe except for notes in text files.
