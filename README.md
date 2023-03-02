@@ -41,7 +41,7 @@ The board has been revised, enhanced and re-released under the name KAY1024 v201
     D4 = ROM128 / ROM48
     D5 = disable paging
     D6 = INIT (XS1, Printer)
-    D7 = bank 5 ;1024 kB memory, if JP6 is open; else #1FFD blocked
+    D7 = bank 5 ;1024 kB memory, if JP6 is closed; else #1FFD blocked
 
     port 1FFDh, 00xxxxxx xxxxxx01
     D0 = 0 - ROM, 1 - RAM page 0 at 0-3FFF
@@ -57,8 +57,9 @@ The board has been revised, enhanced and re-released under the name KAY1024 v201
     JP4 = port 1FFDh blocking circuit presence.
     9-7 - blocking circuit is installed / 9-8 - blocking circuit is not installed.
 
-    JP6 = port 1FFDh blocking circuit configuration.
-    Open - 1FFDh blocking circuit is enabled / Closed - 1FFDh blocking circuit is disabled.
+    JP6 = port 1FFDh blocking configuration.
+    Open - port 1FFDh is blocked / Closed - port 1FFDh is enabled.
+    If port 1FFDh blocking circuit is installed, the JP6 must be open. Port blocking is controlled by push button then.
     
     JP7 = port 1FFDh blocking on/off. Push button.
     
@@ -67,7 +68,7 @@ So, if you have not installed the 1FFDh port blocking circuit, the JP4 must be i
 ### Jumper configuration
     JP1  = Turbo on-off, on/off switch. Overrides 1FFDh/bit2 state if enabled with JP3.
     JP1' = Turbo on-off, push button. Overrides 1FFDh/bit2 state if enabled with JP3
-    Use preferred one.
+    Use preferred one. Actual state is indicated with HL1 LED - if the LED is on, the turbo mode is on and CPU runs on 7MHz.
     
     JP2  = Reset, push button.
     
